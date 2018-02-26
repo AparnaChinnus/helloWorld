@@ -25,7 +25,7 @@ app.get('/', function(req, res) {
     res.send("True in open app");
 });
 app.set('views', path.join(__dirname,'views'));
-//app.use(express.static(path.join(__dirname, 'web')));
+app.use(express.static(path.join(__dirname, 'web')));
 app.get('/asset', function (req, res){
   console.log("inside /asset");
   res.send("True in assets");
