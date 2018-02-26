@@ -22,11 +22,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // });
 app.get('/', function(req, res) {
     console.log("inside /open application");
+    res.send("True in open app");
 });
 app.set('views', path.join(__dirname,'views'));
 //app.use(express.static(path.join(__dirname, 'web')));
 app.get('/asset', function (req, res){
   console.log("inside /asset");
+  res.send("True in assets");
 // client.query('SELECT "Id","Name","Description","ReferenceLink","ApproximateCost","Images" FROM "Assets"."transportationSensorTb" ORDER BY "Id" ASC', (err, result) => {
 //     var length=result.rows.length;
 //     if(err) {
