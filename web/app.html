@@ -6,6 +6,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('../web/layout/styles/search.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 25%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #000000;
+  margin-bottom: 12px;
+  margin-left: 850px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
 <style>
 body {
     font-family: Arial;
@@ -51,10 +90,11 @@ form.example::after {
 <div class="wrapper row1">
   <header id="header" class="clear">
     <div id="logo" class="fl_left">
-      <h1><a href="app.html"><em>S</em>ensor<em>D</em>irectory</a></h1>
+      <h1><a href="app.html"><font face = "Comic sans MS" size ="6"><em>S</em>ensor<em>D</em>irectory</font></a></h1>
     </div>
     <nav id="mainav" class="fl_right">
-      <ul class="clear">
+      <ul class="clear" id = "app">
+        <font face = "Comic sans MS" size ="2">
         <li class="active" ><a href="app.html">Home</a></li>
 
         <li ><a class="drop" href="#">Operation</a>
@@ -73,7 +113,7 @@ form.example::after {
           <ul>
             <li><a href="pages/energy.html">Energy Sensors</a></li>
             <li><a href="pages/oil.html">Oil and Gas Sensors</a></li>
-            <li><a href="pages/mining.html">Mining and Metals</a></li>
+
             <li><a href="pages/agriculture.html">Agriculture</a></li>
             <li class="drop"><a href="#">Manufacturing</a>
             <ul>
@@ -83,21 +123,39 @@ form.example::after {
             </li>
             <li><a href="pages/retail.html">Retails Sensors</a></li>
             <li><a href="pages/home.html">Home Sensors</a></li>
+            <li><a href="pages/power.html">Power In Utility Sensors</a></li>
 
           </ul>
         </li>
 
 
       </ul>
-
+    </font>
     </nav>
 
 
     <!-- ################################################################################################ -->
   </header>
-
   </div>
+<input style="color:#000000" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search here .." title="">
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("app");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
 
+        }
+    }
+}
+</script>
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
 <!-- ################################################################################################ -->
@@ -105,11 +163,13 @@ form.example::after {
   <div id="pageintro" class="clear">
     <!-- ################################################################################################ -->
     <ul class="nospace group">
-      <li><a class="mt-green" href="../pages/asset.html"><i class="fa fa-5x fa-calculator"></i><em>Operation Sensors</em></a></li>
-      <li><a class="mt-purple" href="../pages/health.html"><i class="fa fa-5x fa-heartbeat"></i><em>Health Sensors</em></a></li>
-      <li><a class="mt-orange" href="../pages/energy.html"><i class="fa fa-5x fa-gears"></i><em>Industrial Sensors</em></a></li>
+      <font face = "Comic sans MS" size ="3">
 
+      <li><a class="mt-green" href="../web/pages/asset.html"><i class="fa fa-5x fa-calculator"></i><em>Operation Sensors</em></a></li>
+      <li><a class="mt-purple" href="../web/pages/health.html"><i class="fa fa-5x fa-heartbeat"></i><em>Health Sensors</em></a></li>
+      <li><a class="mt-orange" href="../web/pages/energy.html"><i class="fa fa-5x fa-gears"></i><em>Industrial Sensors</em></a></li>
 
+</font>
 
     </ul>
     <!-- ################################################################################################ -->
@@ -182,8 +242,10 @@ form.example::after {
   <div class="lrspace overlay">
     <footer id="footer" class="clear">
       <!-- ################################################################################################ -->
-      <div class="one_quarter first">
+      <div class="one_quarter first" >
         <h6 class="title">Company Details</h6>
+        <font face = "Comic sans MS" size ="2">
+
         <address class="btmspace-15">
         Ernst & Young LLP<br>
         Drishya Building, Kinfra Park<br>
@@ -195,7 +257,7 @@ form.example::after {
           <li><span class="fa fa-envelope-o"></span> http://www.ey.com </li>
         </ul>
       </div>
-      <div class="one_quarter">
+      <div class="one_quarter" style="color:#000000">
         <h6 class="title">Quick Sensor Links</h6>
         <ul class="nospace linklist">
           <li><a href="#">Operational</a></li>
@@ -203,7 +265,7 @@ form.example::after {
           <li><a href="#">Health</a></li>
           </ul>
       </div>
-        <div class="one_quarter">
+        <div class="one_quarter" style="color:#000000">
         <h6 class="title">Keep In Touch</h6>
         <form class="btmspace-30" method="post" action="#">
           <fieldset>
@@ -220,6 +282,7 @@ form.example::after {
           <li><a class="faicon-instagram" href="#"><i class="fa fa-instagram"></i></a></li>
           <li><a class="faicon-tumblr" href="#"><i class="fa fa-tumblr"></i></a></li>
         </ul>
+
       </div>
       <!-- ################################################################################################ -->
     </footer>
@@ -230,9 +293,11 @@ form.example::after {
 <!-- ################################################################################################ -->
 <div class="wrapper row5">
   <div class="lrspace">
-    <div id="copyright" class="clear">
+    <div id="copyright" class="clear" style="color:#000000" >
+      <font face = "Comic sans MS" size ="2">
+
       <!-- ################################################################################################ -->
-      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="http://www.ey.com/">EY</a></p>
+      <p class="fl_left">Copyright &copy; 2018 - All Rights Reserved - <a href="http://www.ey.com/" style="color:#000000" >EY</font></a></p>
       </div>
   </div>
 </div>
